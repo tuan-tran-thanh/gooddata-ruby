@@ -201,6 +201,7 @@ namespace :test do
   desc 'Run integration tests'
   RSpec::Core::RakeTask.new(:sdk) do |t|
     t.pattern = 'spec/integration/**/*.rb'
+    t.rspec_opts = ["--out sdk_junit.xml"]
   end
 
   desc 'Run LCM tests'
@@ -212,6 +213,7 @@ namespace :test do
        'it is possible to save time by running the tasks in parallel.'
   RSpec::Core::RakeTask.new(:project) do |t|
     t.pattern = 'spec/project/**/*.rb'
+    t.rspec_opts = ["--out project_junit.xml"]
   end
 
   desc 'Run coding style tests'
